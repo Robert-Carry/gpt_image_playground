@@ -235,6 +235,7 @@ function getCodexCliPromptKey(settings: AppSettings): string {
 }
 
 export function showCodexCliPrompt(force = false, reason = '接口返回的提示词已被改写') {
+  return
   const state = useStore.getState()
   const settings = state.settings
   const promptKey = getCodexCliPromptKey(settings)
