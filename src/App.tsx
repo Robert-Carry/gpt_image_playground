@@ -20,10 +20,7 @@ export default function App() {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search)
-    const nextSettings: { baseUrl?: string; apiKey?: string; codexCli?: boolean; apiMode?: ApiMode } = {
-      codexCli: false,
-      apiMode: 'images',
-    }
+    const nextSettings: { baseUrl?: string; apiKey?: string; codexCli?: boolean; apiMode?: ApiMode } = {}
 
     const apiUrlParam = searchParams.get('apiUrl')
     if (apiUrlParam !== null) {
@@ -75,9 +72,11 @@ export default function App() {
   return (
     <>
       <Header />
-      <main data-home-main className="safe-area-x max-w-7xl mx-auto pb-48">
-        <SearchBar />
-        <TaskGrid />
+      <main data-home-main data-drag-select-surface className="pb-48">
+        <div className="safe-area-x max-w-7xl mx-auto">
+          <SearchBar />
+          <TaskGrid />
+        </div>
       </main>
       <InputBar />
       <DetailModal />
